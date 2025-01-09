@@ -36,7 +36,10 @@ if __name__ == '__main__':
     # 從環境變數 PORT 獲取端口，默認為 10000（Render 默認端口）
     port = int(os.environ.get("PORT", 10000))
 
-    # 启动 OlivOS 应用，并将端口配置传递
-    OlivOS.bootAPI.Entity(
+    # 启动 OlivOS 应用，假设不需要指定 host 参数
+    entity = OlivOS.bootAPI.Entity(
         basic_conf='./conf/basic.json'
-    ).start(host="0.0.0.0", port=port)
+    )
+    
+    # 假設 start 方法會自行處理端口設定
+    entity.start()
